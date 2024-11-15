@@ -7,11 +7,31 @@
     <title>SnakeCipher</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+      body {
+        background-color: black;
+        color: green;
+        font-family: monospace;
+      }
+      input {
+        background-color: #555;
+        padding: 10px;
+        font-family: monospace;
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
   </head>
   <body>
-    <main>
-        <h1>Welcome to My Website</h1>
-    </main>
-    <script src="index.js"></script>
+    <h1>SnakeCipher</h1>
+    <h3>Your website for making super-encoded secret messages, that are only able to be decoded through this website. Maybe
+    not, but it'll take who's trying to manually decode it take FOREVER!
+    </h3>
+    <h2>Encode Message</h2>
+    <input type="text" placeholder="Encode your message."/>
+    <h3 class="message"></h3>
+    <h2>Decode Message</h2>
+    <input type="text" placeholder="Decode your message"./>
+    <h3 class="decodedmessage"></h3>
   </body>
 </html>
