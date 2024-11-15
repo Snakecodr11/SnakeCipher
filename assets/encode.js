@@ -22,8 +22,6 @@ function fourth(str) {
 }
 function encode() {
     const inputText = document.getElementById("encode").value;
-    if (!inputText) {
-    }
     let result = first(inputText);
     result = second(result);
     result = third(result);
