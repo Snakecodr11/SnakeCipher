@@ -33,6 +33,6 @@ function encode() {
 // encode when you hit enter in the text field
 document.getElementById("encode").addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
-            encodeText();
+            encode();
         }
     });
