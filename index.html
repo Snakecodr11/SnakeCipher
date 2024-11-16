@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SnakeCipher</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <style>
       body {
@@ -24,89 +23,121 @@
         border: none;
         border-radius: 10px;
         background-color: green;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px;
+      }
+      button:hover {
+        background-color: #004400;
       }
     </style>
   </head>
   <body>
     <h1>SnakeCipher</h1>
-    <h3>Your website for making super-encoded secret messages, that are only able to be decoded through this website. Maybe
-    not, but it'll take who's trying to manually decode it take FOREVER!
+    <h3>
+      Your website for making super-encoded secret messages that are only able to
+      be decoded through this website. Maybe not, but it'll take whoever's trying
+      to manually decode it forever!
     </h3>
     <h2>Encode Message</h2>
-    <input id="encode" type="text" placeholder="Encode your message."/>
+    <input id="encode" type="text" placeholder="Encode your message." />
     <button onclick="encode()">Encode Message</button>
     <h3 id="encodedmessage"></h3>
     <h2>Decode Message</h2>
-    <input id="decode" type="text" placeholder="Decode your message"./>
+    <input id="decode" type="text" placeholder="Decode your message." />
     <button onclick="decodeText()">Decode Message</button>
     <h3 class="decodedmessage"></h3>
     <script>
-      function first(str, shift = 3) {
-    return str.replace(/[a-zA-Z]/g, (char) => {
-        const base = char >= 'a' ? 97 : 65;
-        return String.fromCharCode(((char.charCodeAt(0) - base - shift + 26) % 26) + base);
-    });
-}
+      function cce(str, shift = 3) {
+        return str.replace(/[a-zA-Z]/g, (char) => {
+          const base = char >= "a" ? 97 : 65;
+          return String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26) + base);
+        });
+      }
+      function ccd(str, shift = 3) {
+        return str.replace(/[a-zA-Z]/g, (char) => {
+          const base = char >= "a" ? 97 : 65;
+          return String.fromCharCode(((char.charCodeAt(0) - base - shift + 26) % 26) + base);
+        });
+      }
+      function ae(str, shift = 5) {
+        return str
+          .split("")
+          .map((char) => String.fromCharCode(char.charCodeAt(0) + shift))
+          .join("");
+      }
 
-function second(str, shift = 5) {
-    return str
-        .split("")
-        .map((char) => String.fromCharCode(char.charCodeAt(0) - shift))
-        .join("");
-}
+      // ASCII Shift Decode
+      function ad(str, shift = 5) {
+        return str
+          .split("")
+          .map((char) => String.fromCharCode(char.charCodeAt(0) - shift))
+          .join("");
+      }
 
-function third(str) {
-    return btoa(str);
-}
-// why the hell is this not deploying??
-function fourth(str) {
-    return str
-        .split(" ")
-        .map((bin) => String.fromCharCode(parseInt(bin, 2)))
-        .join("");
-}
+      // Base64 Encode
+      function be(str) {
+        return btoa(str);
+      }
 
-function decodeText() {
-    const inputText = document.getElementById("decode").value;
-    let result = fourth(inputText);
-    result = third(result);
-    result = second(result);r
-    result = first(result);
-    document.querySelector(".decodedmessage").textContent = result;
-}
-function first(str, shift = 3) {
-    return str.replace(/[a-zA-Z]/g, (char) => {
-        const base = char >= 'a' ? 97 : 65;
-        return String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26) + base);
-    });
-}
-function second(str, shift = 5) {
-    return str
-        .split("")
-        .map((char) => String.fromCharCode(char.charCodeAt(0) + shift))
-        .join("");
-}
-function third(str) {
-    return btoa(str);
-}
-function fourth(str) {
-    return str
-        .split("")
-        .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
-        .join(" ");
-}
-function encode() {
-    const inputText = document.getElementById("encode").value;
-    let result = first(inputText);
-    result = second(result);
-    result = third(result);
-    result = fourth(result);
-    document.querySelector(".encodedmessage").textContent = result;
-  var enc = document.querySelector(".encodedmessage");
-  if (enc.textContent = "") {
-    enc.textContent = "There was an error encoding text."
-  }
-}
+      // Base64 Decode
+      function bd(str) {
+        return atob(str);
+      }
+
+      // Binary Encode
+      function bie(str) {
+        return str
+          .split("")
+          .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
+          .join(" ");
+      }
+
+      // Binary Decode
+      function bid(str) {
+        return str
+          .split(" ")
+          .map((bin) => String.fromCharCode(parseInt(bin, 2)))
+          .join("");
+      }
+
+      // Encode Function
+      function encode() {
+        const inputText = document.getElementById("encode").value;
+        if (!inputText) {
+          return;
+        }
+
+        // Step-by-step encoding
+        let result = cce(inputText);
+        result = ae(result);
+        result = be(result);
+        result = bie(result);
+
+        // Display the encoded message
+        document.querySelector(".encodedmessage").textContent = result;
+      }
+
+      // Decode Function
+      function decodeText() {
+        const inputText = document.getElementById("decode").value;
+        if (!inputText) {
+          alert("Please enter text to decode!");
+          return;
+        }
+
+        try {
+          // i really hope this fixes it
+          let result = bid(inputText);
+          result = bd(result);
+          result = ad(result);
+          result = ccd(result);
+          document.querySelector(".decodedmessage").textContent = result;
+        } catch (error) {
+          document.querySelector(".decodedmessage").textContent =
+            "There was an error decoding the message.";
+        }
+      }
     </script>
   </body>
 </html>
