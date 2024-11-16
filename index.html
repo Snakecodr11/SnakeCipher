@@ -34,11 +34,11 @@
     </h3>
     <h2>Encode Message</h2>
     <input id="encode" type="text" placeholder="Encode your message."/>
-    <button id="encodemessage">Encode Message</button>
+    <button onclick="encode()">Encode Message</button>
     <h3 id="encodedmessage"></h3>
     <h2>Decode Message</h2>
     <input id="decode" type="text" placeholder="Decode your message"./>
-    <button id="decodemessage">Decode Message</button>
+    <button onclick="decodeText()">Decode Message</button>
     <h3 class="decodedmessage"></h3>
     <script>
       function first(str, shift = 3) {
@@ -74,10 +74,6 @@ function decodeText() {
     result = first(result);
     document.querySelector(".decodedmessage").textContent = result;
 }
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("decodemessage").addEventListener("click", decodeText);
-  // decode END
-  // wanna know what we use to encode the text? find out yourself, thats why it takes forever.
 function first(str, shift = 3) {
     return str.replace(/[a-zA-Z]/g, (char) => {
         const base = char >= 'a' ? 97 : 65;
@@ -106,11 +102,11 @@ function encode() {
     result = third(result);
     result = fourth(result);
     document.querySelector(".encodedmessage").textContent = result;
+  var enc = document.querySelector(".encodedmessage");
+  if (enc.textContent = "") {
+    enc.textContent = "There was an error encoding text."
+  }
 }
-// encode when you click the button, text field enter didnt work
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("encodemessage").addEventListener("click", encode);
-  // encode END
     </script>
   </body>
 </html>
