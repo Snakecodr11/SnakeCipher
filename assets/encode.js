@@ -30,4 +30,4 @@ function encode() {
 }
 // encode when you click the button, text field enter didnt work
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("encodemessage").addEventListener("click", encodeText);
+    document.getElementById("encodemessage").addEventListener("click", encode);
