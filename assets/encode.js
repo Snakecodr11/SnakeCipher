@@ -28,9 +28,6 @@ function encode() {
     result = fourth(result);
     document.querySelector(".encodedmessage").textContent = result;
 }
-// encode when you hit enter in the text field
-document.getElementById("encode").addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            encode();
-        }
-    });
+// encode when you click the button, text field enter didnt work
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("encodemessage").addEventListener("click", encodeText);
