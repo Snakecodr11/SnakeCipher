@@ -66,49 +66,35 @@
           .map((char) => String.fromCharCode(char.charCodeAt(0) + shift))
           .join("");
       }
-
-      // ASCII Shift Decode
       function ad(str, shift = 5) {
         return str
           .split("")
           .map((char) => String.fromCharCode(char.charCodeAt(0) - shift))
           .join("");
       }
-
-      // Base64 Encode
       function be(str) {
         return btoa(str);
       }
-
-      // Base64 Decode
       function bd(str) {
         return atob(str);
       }
-
-      // Binary Encode
       function bie(str) {
         return str
           .split("")
           .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
           .join(" ");
       }
-
-      // Binary Decode
       function bid(str) {
         return str
           .split(" ")
           .map((bin) => String.fromCharCode(parseInt(bin, 2)))
           .join("");
       }
-
-      // Encode Function
       function encode() {
         const inputText = document.getElementById("encode").value;
         if (!inputText) {
           return;
         }
-
-        // Step-by-step encoding
         let result = cce(inputText);
         result = ae(result);
         result = be(result);
@@ -116,6 +102,7 @@
 
         // Display the encoded message
         document.querySelector(".encodedmessage").textContent = result;
+        alert(result);
       }
 
       // Decode Function
