@@ -15,6 +15,9 @@
       color: green;
       font-family: monospace;
     }
+    .title {
+      font-size: 20px;
+    }
     input {
       background-color: #555;
       padding: 10px;
@@ -35,7 +38,7 @@
     }
   </style>
   <body>
-    <h1 id="title">SnakeCipher</h1>
+    <h1 class="title">SnakeCipher</h1>
     <h3>
       Your website for making super-encoded secret messages that are only able to
       be decoded through this website. Maybe not, but it'll take whoever's trying
@@ -133,7 +136,7 @@
       }
 
       function decodeText() {
-        const inputText = document.getElementById("decode").value;
+        const inputText = document.querySelector(".title").value;
 
         try {
           let result = bid(inputText);
