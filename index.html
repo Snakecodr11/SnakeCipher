@@ -6,37 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SnakeCipher</title>
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+  </head>
   <style>
     body {
       background-color: #222;
       color: green;
       font-family: monospace;
     }
-      input {
-        background-color: #555;
-        padding: 10px;
-        font-family: monospace;
-        border: none;
-        border-radius: 10px;
-      }
-      button {
-        border: none;
-        border-radius: 10px;
-        background-color: green;
-        color: white;
-        cursor: pointer;
-        padding: 10px 20px;
-      }
-      button:hover {
-        background-color: #004400;
-      }
-    </style>
-  </head>
+    input {
+      background-color: #555;
+      padding: 10px;
+      font-family: monospace;
+      border: none;
+      border-radius: 10px;
+    }
+    button {
+      border: none;
+      border-radius: 10px;
+      background-color: green;
+      color: white;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+    button:hover {
+      background-color: #004400;
+    }
+  </style>
   <body>
-    <h1>SnakeCipher</h1>
+    <h1 id="title">SnakeCipher</h1>
     <h3>
       Your website for making super-encoded secret messages that are only able to
       be decoded through this website. Maybe not, but it'll take whoever's trying
@@ -51,6 +50,7 @@
     <button onclick="decodeText()">Decode Message</button>
     <h3 id="decodedmessage"></h3>
     <h4>You can also <a href="index.html" download>download this locally</a> so you don't have to depend on this website.</h4>
+
     <script>
       function cce(str, shift = 3) {
         return str.replace(/[a-zA-Z]/g, (char) => {
@@ -94,6 +94,32 @@
           .map((bin) => String.fromCharCode(parseInt(bin, 2)))
           .join("");
       }
+
+      // flash title stuff to make it look cooler
+      function encodeTitle() {
+        const title = "SnakeCipher";
+        let result = cce(title); 
+        result = ae(result); 
+        result = be(result); 
+        result = bie(result); 
+        return result;
+      }
+
+      function flashEncodedTitle() {
+        const encodedTitle = encodeTitle();
+        const titleElement = document.getElementById("title");
+        
+        setInterval(() => {
+          titleElement.textContent = encodedTitle;
+          setTimeout(() => {
+            titleElement.textContent = "SnakeCipher";
+          }, 500);
+        }, 2000);
+      }
+      window.onload = function() {
+        flashEncodedTitle();
+      };
+
       function encode() {
         const inputText = document.getElementById("encode").value;
         if (!inputText) {
@@ -105,11 +131,11 @@
         result = bie(result);
         document.getElementById("encodedmessage").textContent = result;
       }
+
       function decodeText() {
         const inputText = document.getElementById("decode").value;
 
         try {
-          // i fixed it YAY
           let result = bid(inputText);
           result = bd(result);
           result = ad(result);
