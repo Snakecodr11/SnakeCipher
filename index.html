@@ -33,33 +33,6 @@
         }
     </style>
 </head>
-<body>
-
-<div id="text">Hello, World!</div>
-
-<script>
-    const textElement = document.getElementById("text");
-    const originalText = textElement.textContent;
-    const changeInterval = 50; // Time interval in milliseconds
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
-
-    function changeCharacters() {
-        let currentText = textElement.textContent;
-
-        // Randomly replace characters in the current text
-        let newText = "";
-        for (let i = 0; i < currentText.length; i++) {
-            if (Math.random() > 0.8) {
-                newText += characters[Math.floor(Math.random() * characters.length)];
-            } else {
-                newText += currentText[i];
-            }
-        }
-
-        textElement.textContent = newText;
-    }
-
-    setInterval(changeCharacters, changeInterval);
       input {
         background-color: #555;
         padding: 10px;
