@@ -46,7 +46,7 @@
     <h2>Decode Message</h2>
     <input id="decode" type="text" placeholder="Decode your message." />
     <button onclick="decodeText()">Decode Message</button>
-    <h3 class="decodedmessage"></h3>
+    <h3 id="decodedmessage"></h3>
     <script>
       function cce(str, shift = 3) {
         return str.replace(/[a-zA-Z]/g, (char) => {
@@ -101,7 +101,7 @@
         result = bie(result);
 
         // Display the encoded message
-        document.querySelector(".encodedmessage").textContent = result;
+        document.getElementById("encodedmessage").textContent = result;
         alert(result);
       }
 
@@ -119,9 +119,9 @@
           result = bd(result);
           result = ad(result);
           result = ccd(result);
-          document.querySelector(".decodedmessage").textContent = result;
+          document.getElementById("decodedmessage").textContent = result;
         } catch (error) {
-          document.querySelector(".decodedmessage").textContent =
+          document.getElementById("decodedmessage").textContent =
             "There was an error decoding the message.";
         }
       }
