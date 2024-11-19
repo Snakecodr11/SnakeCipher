@@ -99,22 +99,13 @@
         result = ae(result);
         result = be(result);
         result = bie(result);
-
-        // Display the encoded message
         document.getElementById("encodedmessage").textContent = result;
-        alert(result);
       }
-
-      // Decode Function
       function decodeText() {
         const inputText = document.getElementById("decode").value;
-        if (!inputText) {
-          alert("Please enter text to decode!");
-          return;
-        }
 
         try {
-          // i really hope this fixes it // this aint fixing it
+          // i fixed it YAY
           let result = bid(inputText);
           result = bd(result);
           result = ad(result);
