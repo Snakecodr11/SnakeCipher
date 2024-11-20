@@ -11,12 +11,17 @@
   </head>
   <style>
     body {
-      background-color: #222;
+      background-color: black; /* nice bg color again */
       color: green;
       font-family: monospace;
     }
+    @keyframes title-colors {
+    0% { color: green; }
+    50% { color: blue; }
+    100% { color: green; }
+}
     .title {
-      font-size: 20px;
+      animation: title-colors 10s linear infinite; /* this should look better */
     }
     input {
       background-color: #555;
@@ -98,8 +103,8 @@
           .join("");
       }
 
-      // flash title stuff to make it look cooler
-      function encodeTitle() {
+      // removed title flash
+      /*function encodeTitle() {
         const title = "SnakeCipher";
         let result = cce(title); 
         result = ae(result); 
@@ -121,7 +126,7 @@
       }
       window.onload = function() {
         flashEncodedTitle();
-      };
+      };*/
 
       function encode() {
         const inputText = document.getElementById("encode").value;
