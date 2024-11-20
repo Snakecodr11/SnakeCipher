@@ -102,32 +102,6 @@
           .map((bin) => String.fromCharCode(parseInt(bin, 2)))
           .join("");
       }
-
-      // removed title flash
-      /*function encodeTitle() {
-        const title = "SnakeCipher";
-        let result = cce(title); 
-        result = ae(result); 
-        result = be(result); 
-        result = bie(result); 
-        return result;
-      }
-
-      function flashEncodedTitle() {
-        const encodedTitle = encodeTitle();
-        const titleElement = document.getElementById("title");
-        
-        setInterval(() => {
-          titleElement.textContent = encodedTitle;
-          setTimeout(() => {
-            titleElement.textContent = "SnakeCipher";
-          }, 500);
-        }, 2000);
-      }
-      window.onload = function() {
-        flashEncodedTitle();
-      };*/
-
       function encode() {
         const inputText = document.getElementById("encode").value;
         if (!inputText) {
@@ -141,7 +115,7 @@
       }
 
       function decodeText() {
-        const inputText = document.querySelector(".title").value;
+        const inputText = document.getElementById("decode").value;
 
         try {
           let result = bid(inputText);
