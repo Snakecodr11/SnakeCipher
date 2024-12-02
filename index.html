@@ -57,7 +57,7 @@
     <input id="decode" type="text" placeholder="Decode your message." />
     <button onclick="decodeText()">Decode Message</button>
     <h3 id="decodedmessage"></h3>
-    <h4>You can also <a href="index.html" download>download this locally</a> so you don't have to depend on this website.</h4
+    <h4>You can also <a href="index.html" download>download this locally</a> so you don't have to depend on this website.</h4> <!-- stop messing with stuff pls :sob: -->
 
     <script>
       function cce(str, shift = 3) {
@@ -115,16 +115,6 @@
       }
 }
 
-// Start scrambling when the page loads
-window.onload = function() {
-    const intervalId = setInterval(encodeciphers, 100); // Scramble every 100 ms
-
-    // Stop scrambling after 5 seconds
-    setTimeout(function() {
-        clearInterval(intervalId);
-    }, 5000); // 5000 ms = 5 seconds
-};
-
 
       function decodeText() {
         const inputText = document.getElementById("decode").value;
@@ -140,6 +130,6 @@ window.onload = function() {
             "There was an error decoding the message.";
         }
       }
-    </script>
+    </script> 
   </body>
 </html>
