@@ -44,7 +44,6 @@
   </style>
   <body>
     <h1 id="title" class="title">SnakeCipher</h1>
-   <h2 id="ciphertext">THISWILLBEIMPOSSIBLETOREAD</h2>
     <h3>
       Your website for making super-encoded secret messages that are only able to
       be decoded through this website. Maybe not, but it'll take whoever's trying
@@ -114,16 +113,6 @@
         result = bie(result);
         document.getElementById("encodedmessage").textContent = result;
       }
-      function encodeciphers() {
-    const inputText = document.getElementById("ciphertext").innerText;
-    if (!inputText) {
-        return;
-    }
-    let result = cce(inputText);
-    result = ae(result);
-    result = be(result);
-    result = bie(result);
-    document.getElementById("ciphertext").textContent = result;
 }
 
 // Start scrambling when the page loads
